@@ -1,6 +1,7 @@
 import replit
 gameEnd=0
 tieCheck = 0
+playAgain = 0
 marker = ["1","2","3","4","5","6","7","8","9"]
 def drawBoard():
   replit.clear()
@@ -44,67 +45,76 @@ def checkWin():
   #Columns
   if marker[0] == marker[3] == marker[6]:
     if marker[0] == "o":
-      print ("O wins!!")
+      print ("Player 2 wins!!")
     elif marker[0] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker[1]==marker[4] == marker[7]:
     if marker[1] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[1] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker[2] == marker[5] == marker[8]:
     if marker[2] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[2] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   #Rows
   elif marker[0]==marker[1]==marker[2]:
     if marker[0] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[0] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker[3]==marker[4]==marker[5]:
     if marker[3] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[3] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker[6]==marker[7]==marker[8]:
     if marker[6] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[6] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   #diagonals
   elif marker[0]==marker[4]==marker[8]:
     if marker[0] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[0] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker[2]==marker[4]==marker[6]:
     if marker[2] == "o":
-      print ("O wins!")
+      print ("Player 2 wins!")
     elif marker[2] == "x":
-      print("X wins!")
+      print("Player 1 wins!")
     gameEnd = 1
   elif marker.count("x") + marker.count("o") == 9:
     print("You Tied!")
     gameEnd = 1
-
   return(gameEnd)
-while gameEnd==0:
-  drawBoard()
-  player1Choose()
-  drawBoard()
-  gameEnd = checkWin()
-  if gameEnd == 1:
-    break
-  player2Choose()
-  drawBoard()
-  win = checkWin()
-exit()
+while 1==1:
+  while gameEnd==0:
+    drawBoard()
+    player1Choose()
+    drawBoard()
+    gameEnd = checkWin()
+    if gameEnd == 1:
+      break
+    player2Choose()
+    drawBoard()
+    gameEnd = checkWin()
+
+  playAgain = input("Would you like to play again?\nY/N\n").lower()
+  if playAgain in ["y","yes"]:
+    marker = ["1","2","3","4","5","6","7","8","9"]
+    gameEnd = 0
+  elif playAgain in ["n","no"]:
+    print("Goodbye!")
+    exit()
+
+  
